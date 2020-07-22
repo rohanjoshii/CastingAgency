@@ -74,7 +74,11 @@ def create_app(test_config=None):
 
         body = request.get_json()
         print (body)
-        if not ('name' in body and 'age' in body and 'gender' in body):
+        if 'name' not in body:
+            abort(422)
+        if 'age' not in body:
+            abort(422)
+        if 'gender' not in body:
             abort(422)
         name = body.get('name')
         age = body.get('age')
