@@ -205,7 +205,7 @@ def create_app(test_config=None):
 
 
             if name:
-                actor.title = name
+                actor.name = name
 
             if age:
                 actor.age = age
