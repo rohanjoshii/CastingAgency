@@ -158,7 +158,7 @@ def create_app(test_config=None):
 
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
     @requires_auth('patch:movies')
-    def update_movie(movie_id, jwt):
+    def update_movie(jwt, movie_id):
         movie = Movie.query.get(movie_id)
 
         try:
@@ -190,7 +190,7 @@ def create_app(test_config=None):
 
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
     @requires_auth('patch:actors')
-    def update_actor(actor_id, jwt):
+    def update_actor(jwt, actor_id):
         actor = Actor.query.get(actor_id)
 
         try:
