@@ -1,10 +1,10 @@
-import os
 import unittest
 import json
 from flask_sqlalchemy import SQLAlchemy
-
-from flaskr import create_app
-from models import setup_db, Actor, MOvie
+from datetime import datetime
+from app import create_app
+from models import setup_db, Actor, Movie
+import os
 
 
 class CastingTestCase(unittest.TestCase):
@@ -14,9 +14,11 @@ class CastingTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "cating_test"
+        self.database_name = "casting_test"
         self.database_path = "postgres://{}/{}".format('localhost:5432', self.database_name)
         setup_db(self.app)
+
+        self.executive_producer_jwt = os.environ['EXECUTIVE_PRODUCER']
 
         self.new_movie = {
             'title': 'Title',
@@ -46,7 +48,8 @@ class CastingTestCase(unittest.TestCase):
     Write at least one test for each test for successful operation and for expected errors.
     """
     def test_get_actors(self):
-        res = self.client().get('/actors')
+        res = self.client().get('/actors', headers={
+            "Authorization": "Bearer {}".format(self.executive_producer_jwt)})
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
@@ -55,7 +58,8 @@ class CastingTestCase(unittest.TestCase):
 
 
     def test_404_get_actors_failure(self):
-        res = self.client().get('/actors/1000')
+        res = self.client().get('/actors/1000', headers={
+            "Authorization": "Bearer {}".format(self.executive_producer_jwt)})
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 404)
         self.assertEqual(data['success'], False)
@@ -65,7 +69,8 @@ class CastingTestCase(unittest.TestCase):
 
 
     def test_get_movies(self):
-        res = self.client().get('/movies')
+        res = self.client().get('/movies', headers={
+            "Authorization": "Bearer {}".format(self.executive_producer_jwt)})
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
@@ -74,7 +79,8 @@ class CastingTestCase(unittest.TestCase):
 
 
     def test_404_get_movies_failure(self):
-        res = self.client().get('/movies/1000')
+        res = self.client().get('/movies/1000', headers={
+            "Authorization": "Bearer {}".format(self.executive_producer_jwt)})
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 404)
         self.assertEqual(data['success'], False)
@@ -87,7 +93,8 @@ class CastingTestCase(unittest.TestCase):
         movie.insert()
         movie_id = movie.id
         before = Movie.query.all()
-        res = self.client().delete(f'/movies/{movie_id}')
+        res = self.client().delete(f'/movies/{movie_id}', headers={
+            "Authorization": "Bearer {}".format(self.executive_producer_jwt)})
         data = json.loads(res.data)
         after = Movie.query.all()
         movie = Movie.query.filter(Movie.id == movie.id).one_or_none()
@@ -99,7 +106,8 @@ class CastingTestCase(unittest.TestCase):
 
 
     def test_422_delete_movie_failure(self):
-        res = self.client().delete('/movies/1000')
+        res = self.client().delete('/movies/1000', headers={
+            "Authorization": "Bearer {}".format(self.executive_producer_jwt)})
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 422)
         self.assertEqual(data['success'], False)
@@ -109,7 +117,8 @@ class CastingTestCase(unittest.TestCase):
 
     def test_add_movie(self):
         before = len(Movie.query.all())
-        res = self.client().post('/movies', json=self.new_movie)
+        res = self.client().post('/movies', json=self.new_movie, headers={
+            "Authorization": "Bearer {}".format(self.executive_producer_jwt)})
         data = json.loads(res.data)
         after = len(Movie.query.all())
         self.assertEqual(res.status_code, 200)
@@ -123,7 +132,8 @@ class CastingTestCase(unittest.TestCase):
         new_movie = {
             'title': 'title'
         }
-        res = self.client().post('/movies', json=new_movie)
+        res = self.client().post('/movies', json=new_movie, headers={
+            "Authorization": "Bearer {}".format(self.executive_producer_jwt)})
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 422)
         self.assertEqual(data["success"], False)
@@ -136,7 +146,8 @@ class CastingTestCase(unittest.TestCase):
         actor.insert()
         actor_id = actor.id
         before = Actor.query.all()
-        res = self.client().delete(f'/actors/{actor_id}')
+        res = self.client().delete(f'/actors/{actor_id}', headers={
+            "Authorization": "Bearer {}".format(self.executive_producer_jwt)})
         data = json.loads(res.data)
         after = Actor.query.all()
         actor = Actor.query.filter(Actor.id == actor.id).one_or_none()
