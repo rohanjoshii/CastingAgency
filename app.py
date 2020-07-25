@@ -7,6 +7,7 @@ from flask_cors import CORS
 from models import setup_db, Movie, Actor
 from auth import AuthError, requires_auth
 
+
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__)
@@ -24,7 +25,6 @@ def create_app(test_config=None):
         return babel.dates.format_datetime(date, format)
 
         app.jinja_env.filters['datetime'] = format_datetime
-
 
     @app.after_request
     def after_request(response):
@@ -50,7 +50,6 @@ def create_app(test_config=None):
         except:
             abort(404)
 
-
     @app.route('/actors')
     @requires_auth('get:actors')
     def get_actors(jwt):
@@ -66,7 +65,6 @@ def create_app(test_config=None):
             })
         except:
             abort(404)
-
 
     @app.route('/actors', methods=['POST'])
     @requires_auth('post:actors')
@@ -155,7 +153,6 @@ def create_app(test_config=None):
         else:
             abort(404)
 
-
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
     @requires_auth('patch:movies')
     def update_movie(jwt, movie_id):
@@ -169,7 +166,6 @@ def create_app(test_config=None):
 
             title = body.get('title')
             release_date = body.get('release_date')
-
 
             if title:
                 movie.title = title
@@ -187,7 +183,6 @@ def create_app(test_config=None):
         except:
             abort(422)
 
-
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
     @requires_auth('patch:actors')
     def update_actor(jwt, actor_id):
@@ -202,7 +197,6 @@ def create_app(test_config=None):
             name = body.get('name')
             age = body.get('age')
             gender = body.get('gender')
-
 
             if name:
                 actor.name = name
@@ -222,7 +216,6 @@ def create_app(test_config=None):
 
         except:
             abort(422)
-
 
     @app.errorhandler(AuthError)
     def unauthorized(error):

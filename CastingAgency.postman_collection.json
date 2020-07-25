@@ -1,0 +1,1051 @@
+{
+	"info": {
+		"_postman_id": "b316d6e2-17cd-485d-b8bb-e3c95e353ba3",
+		"name": "CastingAgency",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Casting Assistant",
+			"item": [
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8dcbb0b9-33a9-41a5-bf0d-b4c01fa9a2cd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2220d8ab-c865-419c-b7f9-0b9c62a194dd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "36f452d0-0ff7-4470-8514-e9c1673f7f88",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "74a0f526-983b-48aa-bc65-d8855bfd09f3",
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27498335-5c98-4e19-83e6-bc9a5f9d5190",
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNlejhXRnpmTEhkV05nd1N4NVNxaCJ9.eyJpc3MiOiJodHRwczovL3JvaGFuam9zaGkwMy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYxYTBmZGFlNmEyOTEwMDM3Mjc1YzY4IiwiYXVkIjoiQ2FzdGluZyIsImlhdCI6MTU5NTY1MTY5MywiZXhwIjoxNTk1NzM4MDkzLCJhenAiOiJscDduVmZReXNGM1EyRlN0YTJSNEc3WmZBNUhhckpIRSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.LBxMXMsa3aXMmWRZP53Y0h4HomLdVelbrYXhmuuGMgjJppm8Z57oEl7Rj0WOPXUO2_M3RioSsmqoG2poohLBW63KSqyUFASmGpa9pehx9a48UPchYfsy7T1TuAlpC-gs3bsFL2j8WXyilAp-ImFXNcCp7d-ZqZkQgGM-6xDp5bqPxwphLcoJfV8hjcWXnP77TeAMs9AwoIUVgygNFx58gkLpocjBJrzh8t9Gk9sBWchkWC1OytA0HjXPdhbniFoQfLYsFMDAW4RFvNHFgnfIdFY3uz155pozfxvccslorzU45jeXfHREbl7syNkFG7kbt3DDQo7bNsd--capfMnM9w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9c83dbea-43c2-45f0-b9f0-45393236d36e",
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNlejhXRnpmTEhkV05nd1N4NVNxaCJ9.eyJpc3MiOiJodHRwczovL3JvaGFuam9zaGkwMy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYxYTBmZGFlNmEyOTEwMDM3Mjc1YzY4IiwiYXVkIjoiQ2FzdGluZyIsImlhdCI6MTU5NTY1MTY5MywiZXhwIjoxNTk1NzM4MDkzLCJhenAiOiJscDduVmZReXNGM1EyRlN0YTJSNEc3WmZBNUhhckpIRSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.LBxMXMsa3aXMmWRZP53Y0h4HomLdVelbrYXhmuuGMgjJppm8Z57oEl7Rj0WOPXUO2_M3RioSsmqoG2poohLBW63KSqyUFASmGpa9pehx9a48UPchYfsy7T1TuAlpC-gs3bsFL2j8WXyilAp-ImFXNcCp7d-ZqZkQgGM-6xDp5bqPxwphLcoJfV8hjcWXnP77TeAMs9AwoIUVgygNFx58gkLpocjBJrzh8t9Gk9sBWchkWC1OytA0HjXPdhbniFoQfLYsFMDAW4RFvNHFgnfIdFY3uz155pozfxvccslorzU45jeXfHREbl7syNkFG7kbt3DDQo7bNsd--capfMnM9w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb1596c4-f1a2-4121-b740-6b53f6ef6694",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains actors array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.actors).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f0a33652-618b-469b-8711-8bd2b5694a44",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains movies array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.movies).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNlejhXRnpmTEhkV05nd1N4NVNxaCJ9.eyJpc3MiOiJodHRwczovL3JvaGFuam9zaGkwMy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYxYTBmZGFlNmEyOTEwMDM3Mjc1YzY4IiwiYXVkIjoiQ2FzdGluZyIsImlhdCI6MTU5NTY1MTY5MywiZXhwIjoxNTk1NzM4MDkzLCJhenAiOiJscDduVmZReXNGM1EyRlN0YTJSNEc3WmZBNUhhckpIRSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.LBxMXMsa3aXMmWRZP53Y0h4HomLdVelbrYXhmuuGMgjJppm8Z57oEl7Rj0WOPXUO2_M3RioSsmqoG2poohLBW63KSqyUFASmGpa9pehx9a48UPchYfsy7T1TuAlpC-gs3bsFL2j8WXyilAp-ImFXNcCp7d-ZqZkQgGM-6xDp5bqPxwphLcoJfV8hjcWXnP77TeAMs9AwoIUVgygNFx58gkLpocjBJrzh8t9Gk9sBWchkWC1OytA0HjXPdhbniFoQfLYsFMDAW4RFvNHFgnfIdFY3uz155pozfxvccslorzU45jeXfHREbl7syNkFG7kbt3DDQo7bNsd--capfMnM9w",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "357c7066-d3ca-4293-bf8d-ceedaab7c046",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "740c866e-1f1d-47f1-9424-f1c897d7df94",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Casting Director",
+			"item": [
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a0a960d-0879-475c-af36-e05536d83b66",
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b17a6c19-c28b-4b26-84c3-f6600c8773b5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains actors array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.actors).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1652edce-7dac-4c72-8eae-f18465de95fe",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains movies array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.movies).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actor/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "72cdea56-30f1-4be8-b833-299d30bbc3d4",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "30032653-4bdc-42d2-96ef-299d45b708a4",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "367dfa9a-476d-4f61-9da6-135b39843e83",
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "011cfdf1-52e1-4669-88a1-163b07e73b05",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNlejhXRnpmTEhkV05nd1N4NVNxaCJ9.eyJpc3MiOiJodHRwczovL3JvaGFuam9zaGkwMy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYxYTBmZGFlNmEyOTEwMDM3Mjc1YzY4IiwiYXVkIjoiQ2FzdGluZyIsImlhdCI6MTU5NTY1MTY5MywiZXhwIjoxNTk1NzM4MDkzLCJhenAiOiJscDduVmZReXNGM1EyRlN0YTJSNEc3WmZBNUhhckpIRSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.LBxMXMsa3aXMmWRZP53Y0h4HomLdVelbrYXhmuuGMgjJppm8Z57oEl7Rj0WOPXUO2_M3RioSsmqoG2poohLBW63KSqyUFASmGpa9pehx9a48UPchYfsy7T1TuAlpC-gs3bsFL2j8WXyilAp-ImFXNcCp7d-ZqZkQgGM-6xDp5bqPxwphLcoJfV8hjcWXnP77TeAMs9AwoIUVgygNFx58gkLpocjBJrzh8t9Gk9sBWchkWC1OytA0HjXPdhbniFoQfLYsFMDAW4RFvNHFgnfIdFY3uz155pozfxvccslorzU45jeXfHREbl7syNkFG7kbt3DDQo7bNsd--capfMnM9w",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8dfd5fe7-cffd-40f6-94f0-5921d8eae81b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "540e4f0b-6574-49ab-ab8d-6735a407866e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Executive Producer",
+			"item": [
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "521d48da-75d4-4afd-98ad-c9af297c94f3",
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNlejhXRnpmTEhkV05nd1N4NVNxaCJ9.eyJpc3MiOiJodHRwczovL3JvaGFuam9zaGkwMy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYxYTBmZGFlNmEyOTEwMDM3Mjc1YzY4IiwiYXVkIjoiQ2FzdGluZyIsImlhdCI6MTU5NTY1MTY5MywiZXhwIjoxNTk1NzM4MDkzLCJhenAiOiJscDduVmZReXNGM1EyRlN0YTJSNEc3WmZBNUhhckpIRSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.LBxMXMsa3aXMmWRZP53Y0h4HomLdVelbrYXhmuuGMgjJppm8Z57oEl7Rj0WOPXUO2_M3RioSsmqoG2poohLBW63KSqyUFASmGpa9pehx9a48UPchYfsy7T1TuAlpC-gs3bsFL2j8WXyilAp-ImFXNcCp7d-ZqZkQgGM-6xDp5bqPxwphLcoJfV8hjcWXnP77TeAMs9AwoIUVgygNFx58gkLpocjBJrzh8t9Gk9sBWchkWC1OytA0HjXPdhbniFoQfLYsFMDAW4RFvNHFgnfIdFY3uz155pozfxvccslorzU45jeXfHREbl7syNkFG7kbt3DDQo7bNsd--capfMnM9w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e7af65f8-93e3-43c3-b982-01387f1cc7ed",
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "650ec0fa-2837-4d95-be25-9c7840f29873",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains actors array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.actors).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cde4002d-2e7a-4cbb-858a-57cf06a62109",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains movies array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.movies).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actor/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d1e08891-fcde-4945-8dd7-75e4a31933ee",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors/3",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f0b258a5-fae4-463c-be50-e2bfb19a48f7",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies/2",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "57411273-3ec6-4070-a0ab-1032b8170420",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/actors/3",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1085480a-73a5-405f-a492-32063254c27a",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies/2",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1000",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ab35245c-f12e-4214-8cf5-3786d5c51c35",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies/1000",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1000",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f0b026f1-38f3-42f0-ba4f-b6cc2d693dc4",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://thawing-beyond-72939.herokuapp.com/movies/1000",
+							"protocol": "https",
+							"host": [
+								"thawing-beyond-72939",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNlejhXRnpmTEhkV05nd1N4NVNxaCJ9.eyJpc3MiOiJodHRwczovL3JvaGFuam9zaGkwMy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYxYTBmZGFlNmEyOTEwMDM3Mjc1YzY4IiwiYXVkIjoiQ2FzdGluZyIsImlhdCI6MTU5NTY1MTY5MywiZXhwIjoxNTk1NzM4MDkzLCJhenAiOiJscDduVmZReXNGM1EyRlN0YTJSNEc3WmZBNUhhckpIRSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.LBxMXMsa3aXMmWRZP53Y0h4HomLdVelbrYXhmuuGMgjJppm8Z57oEl7Rj0WOPXUO2_M3RioSsmqoG2poohLBW63KSqyUFASmGpa9pehx9a48UPchYfsy7T1TuAlpC-gs3bsFL2j8WXyilAp-ImFXNcCp7d-ZqZkQgGM-6xDp5bqPxwphLcoJfV8hjcWXnP77TeAMs9AwoIUVgygNFx58gkLpocjBJrzh8t9Gk9sBWchkWC1OytA0HjXPdhbniFoQfLYsFMDAW4RFvNHFgnfIdFY3uz155pozfxvccslorzU45jeXfHREbl7syNkFG7kbt3DDQo7bNsd--capfMnM9w",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9fdac8a6-29d1-48a5-8ce7-d74d3b496060",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c803e48-e037-4d47-b148-b66ef8128b76",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
